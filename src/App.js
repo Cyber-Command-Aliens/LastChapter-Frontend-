@@ -6,6 +6,7 @@ import Footer from './Components/Footer/Footer';
 import { withAuth0 } from '@auth0/auth0-react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Review from './Components/Review /Review';
+import Login from './Components/Login/Login';
 //Render The Components Between the Header and The footer 
 class app extends React.Component {
   constructor(props){
@@ -29,17 +30,28 @@ class app extends React.Component {
   render()
    {
     const { isAuthenticated } = this.props.auth0;
+    const { user } = this.props.auth0;
+    
     return (
       <>
-        <Header user={this.state.user} onLogout={this.logoutHandler} ></Header>
+     
+       {!isAuthenticated &&
+                <Login></Login>
+
+              }
+              {isAuthenticated && 
+        <Header user={this.state.user} onLogout={this.logoutHandler}></Header>
+              }
         {isAuthenticated &&
-        <Header></Header>
-      }
-      <Review/>
       <Home></Home>
+      }
+      {isAuthenticated &&
+      <Review/>
+      }
 
-
+        {isAuthenticated &&
         <Footer></Footer>
+        }
       </>
     );
   }

@@ -8,11 +8,17 @@ import { withAuth0 } from '@auth0/auth0-react';
 
 class Header extends React.Component {
     render() {
-        const { loginWithRedirect } = this.props.auth0;
+        // const { loginWithRedirect } = this.props.auth0;
+        const { isAuthenticated,logout } = this.props.auth0;
+        const { user } = this.props.auth0;
+        
         
         return (
             <>
+         
+            
                 <Navbar bg="light" variant="light">
+                
                     <Container>
                         
                         <Navbar.Brand href="#home">
@@ -38,9 +44,14 @@ class Header extends React.Component {
                         </Nav>
                         <Navbar.Collapse className="justify-content-end">
                                 <Navbar.Text>
-                                    Signed in as: <a href="#login">Mark Otto</a>
+                                    Signed in as: <a href="#login">{user.name}</a>
                                 </Navbar.Text>
-                                <Button onClick={() => loginWithRedirect()} style={{margin:'20px'}}variant="outline-info">🚪</Button>
+                                {isAuthenticated &&
+                               
+                                <Button onClick={() => {
+                                    logout({ returnTo: window.location.origin });
+                                  }}  style={{margin:'20px'}}variant="outline-info">🚪</Button>
+                                }
                             </Navbar.Collapse>
                     </Container>
                 </Navbar>
