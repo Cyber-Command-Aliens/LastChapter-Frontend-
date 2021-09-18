@@ -3,6 +3,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import './Header.scss';
+import Button from 'react-bootstrap/Button'
 
 class Header extends React.Component {
     render() {
@@ -10,6 +11,7 @@ class Header extends React.Component {
             <>
                 <Navbar bg="light" variant="light">
                     <Container>
+                        
                         <Navbar.Brand href="#home">
                             <h6 style={{ fontFamily: 'Italianno', fontSize: '50px' }}>LastChapter</h6>
                         </Navbar.Brand>
@@ -22,17 +24,21 @@ class Header extends React.Component {
                                 alt="React Bootstrap logo"
                             />
                         </Navbar.Brand>
+                        
                         <Nav className="me-auto">
                             <Nav.Link href="#home">Home</Nav.Link>
                             <Nav.Link href="#features">Profile</Nav.Link>
                             <Nav.Link href="#pricing">Review</Nav.Link>
                             <Nav.Link href="#pricing">About Us</Nav.Link>
-                            <Navbar.Collapse className="justify-content-end">
+                            
+                        
+                        </Nav>
+                        <Navbar.Collapse className="justify-content-end">
                                 <Navbar.Text>
                                     Signed in as: <a href="#login">Mark Otto</a>
                                 </Navbar.Text>
+                                <Button  style={{margin:'20px'}}variant="outline-info">🚪</Button>
                             </Navbar.Collapse>
-                        </Nav>
                     </Container>
                 </Navbar>
             </>
