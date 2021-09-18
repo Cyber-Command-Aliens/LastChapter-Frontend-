@@ -1,6 +1,15 @@
 import React from 'react';
-import { Card, Button, Image, Row, Col, ListGroup, Form } from "react-bootstrap";
+import { Card, Button, Modal, Row, Col, ListGroup, Form } from "react-bootstrap";
+import Comment from './Comment';
+
 class Comments extends React.Component {
+  constructor(props){
+    super(props);
+    this.state ={
+      show: false,
+      
+    }
+  }
   
   render() {
     return (<>
@@ -17,7 +26,12 @@ class Comments extends React.Component {
       </Row>
       </ListGroup.Item>
       <Form.Control type='text' placeholder='Comment'/>
-      <ListGroup.Item>comment 1</ListGroup.Item>
+      <ListGroup.Item onClick={ ()=>{this.setState({show:true})} }> 3 comments</ListGroup.Item>
+      <Modal show={this.state.show} onHide={()=>{this.setState({show:false})}}>
+      <Comment/>
+      <Comment/>
+
+      </Modal>
       </Card.Body>
     </Card>
     </>);

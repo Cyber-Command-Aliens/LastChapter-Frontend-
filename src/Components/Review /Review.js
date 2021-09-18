@@ -1,8 +1,8 @@
 import React from "react";
-import { Card, Form } from 'react-bootstrap';
+import { Card, Form, Button } from 'react-bootstrap';
 import PostPlace from "./PostPlace";
 import PostForm from "./PostForm";
-import './review.css'
+import './review.css';
 
 class Review extends React.Component {
     constructor(props){
@@ -30,6 +30,8 @@ class Review extends React.Component {
             return <PostPlace book={book}/>
         })}
         <PostForm open={this.state.show} close={this.closeForm}/>
+
+        <Button id='b' href='#post'><p id='up'>Post</p></Button>
       </>
     );
   }
