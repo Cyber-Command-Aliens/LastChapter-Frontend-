@@ -10,11 +10,14 @@ class Home extends React.Component {
     this.state = {
       catgories:[],
       show: true,
-      loading: true
+      loading: true,
+      favourtie: []
     }
   }
   componentDidMount = () => {
-    // const { user } = this.props.auth0; this is for the auth
+    
+    const { user } = this.props.auth0; 
+    const email = user.email
     axios.get('http://localhost:3001/')
       .then((results) => {
        this.setState({
@@ -35,14 +38,19 @@ class Home extends React.Component {
     })
   }
   favourite= (title,img,author,status,pages,infoLink)=>{
+    const { user } = this.props.auth0; 
+    const email = user.email
+    console.log(email);
     let postArr= {
       title:title,
       img:img,
       author:author,
       status:status,
+      email:email,
       pages:pages,
       infoLink:infoLink
     }
+    
     // console.log(postArr);
     // change the route link in order to get the data i put att the deafult add 
     axios
