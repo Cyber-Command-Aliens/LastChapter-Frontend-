@@ -1,0 +1,15 @@
+#up{
+   
+    text-decoration: none;
+    color: #000;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+#b{
+    position: sticky;
+    bottom: 5%;
+    margin-left: 10%;
+    z-index: 1;
+    border-radius: 50%;
+}
