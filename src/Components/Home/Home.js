@@ -8,13 +8,7 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      adventure: [],
-      classics: [],
-      comics: [],
-      mystery: [],
-      historical: [],
-      horror: [],
-      Love: [],
+      catgories:[],
       show: true,
       loading: true
     }
@@ -23,18 +17,9 @@ class Home extends React.Component {
     // const { user } = this.props.auth0; this is for the auth
     axios.get('http://localhost:3001/')
       .then((results) => {
-        this.setState({
-          adventure: results.data.Adventure,
-          classics: results.data.Classics,
-          comics: results.data.Comics,
-          mystery: results.data.Mystery,
-          historical: results.data.Historical,
-          horror: results.data.Horror,
-          Love: results.data.Love,
-          vlaue: false
-
-        })
-
+       this.setState({
+        catgories:results.data
+       })
 
       })
       .catch(err => {
@@ -49,16 +34,37 @@ class Home extends React.Component {
       show: false
     })
   }
-  favourite= ()=>{
-    
+  favourite= (title,img,author,status,pages,infoLink)=>{
+    let postArr= {
+      title:title,
+      img:img,
+      author:author,
+      status:status,
+      pages:pages,
+      infoLink:infoLink
+    }
+    // console.log(postArr);
+    // change the route link in order to get the data i put att the deafult add 
+    axios
+    .post(`http://localhost:3001/add`,postArr)
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((err) => {
+      console.log(err.response);
+    })
   }
 
   render() {
 
-    console.log(this.state.adventure)
+    // console.log(this.state.catgories)
     return (
       <>
-      
+       <Row xs={2} md={4} lg={6}>
+      {this.state.catgories.map((item) => {
+        return  <BookCards favourite={this.favourite} item= {item}></BookCards>
+      })}
+</Row>
      </>
     );
   }
