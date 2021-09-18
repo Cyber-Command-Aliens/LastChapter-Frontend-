@@ -3,10 +3,13 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import './Header.scss';
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
+import { withAuth0 } from '@auth0/auth0-react';
 
 class Header extends React.Component {
     render() {
+        const { loginWithRedirect } = this.props.auth0;
+        
         return (
             <>
                 <Navbar bg="light" variant="light">
@@ -37,7 +40,7 @@ class Header extends React.Component {
                                 <Navbar.Text>
                                     Signed in as: <a href="#login">Mark Otto</a>
                                 </Navbar.Text>
-                                <Button  style={{margin:'20px'}}variant="outline-info">🚪</Button>
+                                <Button onClick={() => loginWithRedirect()} style={{margin:'20px'}}variant="outline-info">🚪</Button>
                             </Navbar.Collapse>
                     </Container>
                 </Navbar>
@@ -47,4 +50,4 @@ class Header extends React.Component {
     }
 }
 
-export default Header;
+export default withAuth0(Header);

@@ -14,7 +14,8 @@ class Home extends React.Component {
     }
   }
   componentDidMount = () => {
-    // const { user } = this.props.auth0; this is for the auth
+    const { user } = this.props.auth0; 
+    console.log(user);
     axios.get('http://localhost:3001/')
       .then((results) => {
        this.setState({
@@ -43,6 +44,7 @@ class Home extends React.Component {
       pages:pages,
       infoLink:infoLink
     }
+    
     // console.log(postArr);
     // change the route link in order to get the data i put att the deafult add 
     axios
