@@ -45,9 +45,9 @@ class app extends React.Component {
         {isAuthenticated &&
       <Home></Home>
       }
-      {isAuthenticated &&
+      {/* {isAuthenticated && */}
       <Review/>
-      }
+      {/* } */}
 
         {isAuthenticated &&
         <Footer></Footer>
