@@ -6,11 +6,6 @@ import './Header.scss';
 import Button from 'react-bootstrap/Button';
 import { withAuth0 } from '@auth0/auth0-react';
 import { Link } from "react-router-dom";
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route
-  } from "react-router-dom";
 
 class Header extends React.Component {
     render() {
@@ -41,12 +36,12 @@ class Header extends React.Component {
                         </Navbar.Brand>
                         
                         <Nav className="me-auto">
-                            <Nav.Link href="#home">Home</Nav.Link>
-                            <Router>
-                            <Link to="/profile">Profile</Link>
-                            </Router>
-                            <Nav.Link href="#Review">Review</Nav.Link>
-                            <Nav.Link href="#AboutUs">About Us</Nav.Link>
+                            <Nav.Link href="/">Home</Nav.Link>
+                          
+                            <Nav.Link href="/Profile">Profile</Nav.Link>
+                            
+                            <Nav.Link href="/Review">Review</Nav.Link>
+                            <Nav.Link href="/AboutUs">About Us</Nav.Link>
                             
                         
                         </Nav>

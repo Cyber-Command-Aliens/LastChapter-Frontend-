@@ -9,7 +9,7 @@ import Review from './Components/Review /Review';
 import Login from './Components/Login/Login';
 import axios from 'axios';
 import Row from 'react-bootstrap/Row';
-import Profile from './Components/Profile/Profile'
+import Profile from './Components/Profile/Profile';
 
 
 import {
@@ -20,9 +20,9 @@ import {
 
 //Render The Components Between the Header and The footer 
 class app extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props)
-    this.state={
+    this.state = {
       user: null,
       catgories: [],
       show: true,
@@ -92,21 +92,21 @@ class app extends React.Component {
       })
   }
 
-getFavData=()=>{
-  const { user } = this.props.auth0;
-  const email = user.email
-  axios.get(`http://localhost:3001/profile?email=${email}`)
-    .then((results) => {
-      this.setState({
+  getFavData = () => {
+    const { user } = this.props.auth0;
+    const email = user.email
+    axios.get(`http://localhost:3001/profile?email=${email}`)
+      .then((results) => {
+        this.setState({
           favourtie: results.data
-      })
-      console.log(this.state.favourtie);
+        })
+        console.log(this.state.favourtie);
 
-    })
-    .catch(err => {
-      console.log('error');
-    })
-}
+      })
+      .catch(err => {
+        console.log('error');
+      })
+  }
 
 
   deleteBook = (id) => {
@@ -118,45 +118,49 @@ getFavData=()=>{
         this.setState({
           favourtie: result.data
         })
-        
+
       })
       .catch(err => {
         console.log('error in deleting book');
       })
   }
-  render()
-   {
+  render() {
     const { isAuthenticated } = this.props.auth0;
     const { user } = this.props.auth0;
-    console.log(this.state.favourtie);
     return (
       <>
-      
-       {!isAuthenticated &&
-                <Login></Login>
+        <Router>
+          {!isAuthenticated &&
+            <Login></Login>
 
-              }
-              {isAuthenticated && 
-        <Header user={this.state.user} onLogout={this.logoutHandler}></Header>
-              }
-        {isAuthenticated &&
-      <Home catgories = {this.state.catgories} favourite= {this.favourite} ></Home>
-      }
-      {isAuthenticated &&
-       <Profile
-       favourtie={this.state.favourtie}
-       deleteBook={this.deleteBook}
-       getFavData={this.getFavData}
-     />
-      }
-      {isAuthenticated &&
-      <Review/>
-      }
+          }
+          {isAuthenticated &&
+            <Header user={this.state.user} onLogout={this.logoutHandler}></Header>
+          }
+          <Switch>
+           {isAuthenticated &&
+           <Route path = "/" exact component={ () => <Home catgories={this.state.catgories} favourite={this.favourite} ></Home>}></Route>
+            
+          }
+          
+         
+            {isAuthenticated &&
+            
+            <Route path = "/Profile" component = { ()=> <Profile favourtie={this.state.favourtie} deleteBook={this.deleteBook} getFavData= {this.getFavData}
+            />}></Route>
+          }
+          
+          {isAuthenticated &&
+           <Route path = "/Review" component ={Review}></Route> 
+          }
+          </Switch>
 
-        {isAuthenticated &&
-        <Footer></Footer>
-        }
+         
+            <Footer></Footer>
+          
+        </Router>
       </>
+
     );
   }
 }
