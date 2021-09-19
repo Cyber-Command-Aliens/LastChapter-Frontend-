@@ -16,9 +16,9 @@ A simple React app where you can find your favourite book,Share Your feedback,An
 
 
 # Features 
--A user can add their own favourite book
--A user can post a comment about his favourite book 
--Full Secure 
+- A user can add their own favourite book
+- A user can post a comment about his favourite book 
+- Full Secure 
 
 
 # Tools
