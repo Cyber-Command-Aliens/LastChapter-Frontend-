@@ -13,20 +13,20 @@ import {
 
 class Home extends React.Component {
 
-  
+
 
   render() {
 
     // console.log(this.state.catgories)
     return (
       <>
-        
-              <Row xs={2} md={4} lg={6}>
-                {this.props.catgories.map((item) => {
-                  return <BookCards favourite={this.props.favourite} item={item}></BookCards>
-                })}
-              </Row>
-            
+
+        <Row xs={2} md={4} lg={6}>
+          {this.props.catgories.map((item) => {
+            return <BookCards favourite={this.props.favourite} item={item}></BookCards>
+          })}
+        </Row>
+
       </>
     );
   }
