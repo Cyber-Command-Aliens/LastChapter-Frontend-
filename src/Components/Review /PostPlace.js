@@ -1,55 +1,55 @@
 import React from "react";
 import { Card, Button, Image, Row, Col, ListGroup } from "react-bootstrap";
 import Comments from "./Comments";
+import { withAuth0 } from '@auth0/auth0-react';
 
 class PostPlace extends React.Component {
   render() {
+    const { isAuthenticated,logout } = this.props.auth0;
+    const { user } = this.props.auth0;
+    console.log(this.props.book);
     return (
       <>
         <Card style={{ width: "60rem", margin: "50px auto" }}>
           <Card.Body>
             <Row>
               <Col>
-                <Card style={{ width: "13rem", height: '32rem' }}>
-                  <Card.Img
-                    variant="top"
-                    src="https://via.placeholder.com/150x200"
-                  />
+                <Card style={{ width: "13rem", height: "32rem" }}>
+                  <Card.Img variant="top" src={this.props.book.book.img} />
                   <Card.Body>
-                    <Card.Title>Book name</Card.Title>
-                    <Card.Text>drama, si-fi, action</Card.Text>
-                    <ListGroup.Item>❤️ 20</ListGroup.Item>
-                    <ListGroup.Item>⭐ 2.5</ListGroup.Item>
+                    <Card.Title>{this.props.book.book.title}</Card.Title>
+
+                    <ListGroup.Item>
+                      Author: {this.props.book.book.author}
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <Button href={this.props.book.book.infoLink}>Info</Button>
+                    </ListGroup.Item>
                   </Card.Body>
                 </Card>
               </Col>
               <Col>
-                <Card style={{width: '40rem', height: '32rem'}}>
+                <Card style={{ width: "40rem", height: "32rem" }}>
                   <Card.Header as="h5">
-                  <Image
-                    style={{ float: "left" }}
-                    src="https://via.placeholder.com/70"
-                    roundedCircle
-                  />
-                  <p>user.random@gmail.com</p>
-                  <p>user name</p>
+                    <Row>
+                      <Col>
+                        <Image src={this.props.book.userImg} roundedCircle />
+                      </Col>
+                      <Col>
+                        <p>{this.props.book.book.email}</p>
+                        <p>{this.props.book.userName}</p>
+                      </Col>
+                      <Col>
+                       {user.email===this.props.book.book.email&&
+                        <Button onClick={()=>{this.props.delete(this.props.book._id)}}>Delete post</Button>
+                       }
+                      </Col>
+                    </Row>
                   </Card.Header>
                   <Card.Body>
-                    <Card.Title>Post/review title</Card.Title>
-                    <Card.Text>
-                      With supporting text below as a natural lead-in to
-                      additional content. With supporting text below as a natural lead-in to
-                      additional content. With supporting text below as a natural lead-in to
-                      additional content.
-                      With supporting text below as a natural lead-in to
-                      additional content.With supporting text below as a natural lead-in to
-                      additional content.
-
-                      With supporting text below as a natural lead-in to
-                      additional content.With supporting text below as a natural lead-in to
-                      additional content.
-                    </Card.Text>
-                    <Comments/>
+                    <Card.Title>{this.props.book.title}</Card.Title>
+                    <Card.Text>{this.props.book.review}</Card.Text>
+                    <Comments id={this.props.book._id} updateComments={this.props.updateComments} />
                   </Card.Body>
                 </Card>
               </Col>
@@ -61,4 +61,4 @@ class PostPlace extends React.Component {
   }
 }
 
-export default PostPlace;
+export default withAuth0(PostPlace);

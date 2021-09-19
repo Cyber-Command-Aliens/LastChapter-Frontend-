@@ -7,6 +7,7 @@ import { withAuth0 } from '@auth0/auth0-react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Review from './Components/Review /Review';
 import Login from './Components/Login/Login';
+import Profile from './Components/Profile/Profile';
 //Render The Components Between the Header and The footer 
 class app extends React.Component {
   constructor(props){
@@ -45,8 +46,9 @@ class app extends React.Component {
         {isAuthenticated &&
       <Home></Home>
       }
+      
       {/* {isAuthenticated && */}
-      <Review/>
+      
       {/* } */}
 
         {isAuthenticated &&

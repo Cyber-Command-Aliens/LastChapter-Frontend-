@@ -7,7 +7,9 @@ class Comments extends React.Component {
     super(props);
     this.state ={
       show: false,
-      
+      id: this.props.id,
+      likes: 0,
+      comments: []
     }
   }
   
@@ -21,12 +23,12 @@ class Comments extends React.Component {
         <Button style={{width: '15rem'}}>❤️</Button>
         </Col>
         <Col>
-        <Button style={{width: '15rem'}}>💬</Button>
+        <Button onClick={()=>{this.props.updateComments('hi')}} style={{width: '15rem'}}>💬</Button>
         </Col>
       </Row>
       </ListGroup.Item>
       <Form.Control type='text' placeholder='Comment'/>
-      <ListGroup.Item onClick={ ()=>{this.setState({show:true})} }> 3 comments</ListGroup.Item>
+      <ListGroup.Item onClick={ ()=>{this.setState({show:true})} }>comments</ListGroup.Item>
       <Modal show={this.state.show} onHide={()=>{this.setState({show:false})}}>
       <Comment/>
       <Comment/>

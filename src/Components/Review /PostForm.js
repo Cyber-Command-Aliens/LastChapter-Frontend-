@@ -6,10 +6,10 @@ class PostForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      profileDB: [{title: 'ssd', des:'aasdasdas'},{title: 'eer', des:'aa0s00da0sd0as'}],
-      book: {title: 'ssd', des:'aasdasdas'},
-      title: "ss",
-      review: "ss",
+      profileDB: this.props.fB,
+      book: this.props.fB[0],
+      title: "no-title",
+      review: "...",
     };
   }
 
