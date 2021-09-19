@@ -5,6 +5,12 @@ import Nav from 'react-bootstrap/Nav';
 import './Header.scss';
 import Button from 'react-bootstrap/Button';
 import { withAuth0 } from '@auth0/auth0-react';
+import { Link } from "react-router-dom";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+  } from "react-router-dom";
 
 class Header extends React.Component {
     render() {
@@ -36,7 +42,9 @@ class Header extends React.Component {
                         
                         <Nav className="me-auto">
                             <Nav.Link href="#home">Home</Nav.Link>
-                            <Nav.Link href="#features">Profile</Nav.Link>
+                            <Router>
+                            <Link to="/profile">Profile</Link>
+                            </Router>
                             <Nav.Link href="#pricing">Review</Nav.Link>
                             <Nav.Link href="#pricing">About Us</Nav.Link>
                             
