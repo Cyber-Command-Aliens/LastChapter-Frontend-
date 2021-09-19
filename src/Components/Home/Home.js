@@ -57,6 +57,10 @@ class Home extends React.Component {
     .post(`http://localhost:3001/add`,postArr)
     .then((response) => {
       console.log(response.data);
+      this.setState({
+        favourtie: response.data
+      })
+      console.log(this.state.favourtie);
     })
     .catch((err) => {
       console.log(err.response);
