@@ -16,6 +16,7 @@ class Review extends React.Component {
     }
 
     componentDidMount = () =>{
+      console.log(this.props.favBooks);
       axios
       .get(`http://localhost:3001/getposts`)
       .then(
