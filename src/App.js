@@ -100,7 +100,7 @@ class app extends React.Component {
         this.setState({
           favourtie: results.data
         })
-        console.log(this.state.favourtie);
+        console.log('hi');
 
       })
       .catch(err => {
@@ -129,36 +129,52 @@ class app extends React.Component {
     const { user } = this.props.auth0;
     return (
       <>
-        <Router>
           {!isAuthenticated &&
             <Login></Login>
 
           }
+
+<Router>
           {isAuthenticated &&
             <Header user={this.state.user} onLogout={this.logoutHandler}></Header>
           }
-          <Switch>
            {isAuthenticated &&
-           <Route path = "/" exact component={ () => <Home catgories={this.state.catgories} favourite={this.favourite} ></Home>}></Route>
-            
+           <Route exact path = "/">
+            <Home 
+            catgories={this.state.catgories} 
+            favourite={this.favourite}
+            />
+            </Route>
           }
           
          
-            {isAuthenticated &&
-            
-            <Route path = "/Profile" component = { ()=> <Profile favourtie={this.state.favourtie} deleteBook={this.deleteBook} getFavData= {this.getFavData}
-            />}></Route>
+            {isAuthenticated &&     
+            <Route exact path = "/Profile"> 
+
+            {/* component = { ()=> <Profile favourtie={this.state.favourtie} deleteBook={this.deleteBook} getFavData= {this.getFavData}
+            />}> */}
+            <Profile
+            favourtie={this.state.favourtie} 
+            deleteBook={this.deleteBook} 
+            getFavData= {this.getFavData}
+            />
+            </Route>
           }
           
           {isAuthenticated &&
-           <Route path = "/Review" component ={Review}></Route> 
+
+           <Route exact path = "/Review">
+             <Review/>
+           </Route> 
           }
-          </Switch>
+
+          
+       
+        </Router>
 
          
             <Footer></Footer>
           
-        </Router>
       </>
 
     );

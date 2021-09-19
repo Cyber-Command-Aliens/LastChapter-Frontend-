@@ -7,6 +7,7 @@ import { withAuth0 } from '@auth0/auth0-react';
 class Profile extends Component {
     componentDidMount = () => {
      this.props.getFavData();
+   
     
         
     }
