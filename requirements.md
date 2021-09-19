@@ -1,5 +1,5 @@
 
-- Projectname: **LastChapter**
+
 # LastChapter
 A simple React app where you can find your favourite book,Share Your feedback,And find out community reviews 
 
