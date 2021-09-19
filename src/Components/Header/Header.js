@@ -45,8 +45,8 @@ class Header extends React.Component {
                             <Router>
                             <Link to="/profile">Profile</Link>
                             </Router>
-                            <Nav.Link href="#pricing">Review</Nav.Link>
-                            <Nav.Link href="#pricing">About Us</Nav.Link>
+                            <Nav.Link href="#Review">Review</Nav.Link>
+                            <Nav.Link href="#AboutUs">About Us</Nav.Link>
                             
                         
                         </Nav>
