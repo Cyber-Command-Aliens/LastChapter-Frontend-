@@ -3,20 +3,82 @@ import { Card, Form, Button } from 'react-bootstrap';
 import PostPlace from "./PostPlace";
 import PostForm from "./PostForm";
 import './review.css';
+import { withAuth0 } from '@auth0/auth0-react';
+import axios from "axios";
 
 class Review extends React.Component {
     constructor(props){
         super(props);
         this.state={
             show: false,
-            posts: [{},{},{}]
+            posts: [],
         }
     }
+
+    componentDidMount = () =>{
+      console.log(this.props.favBooks);
+      axios
+      .get(`http://localhost:3001/getposts`)
+      .then(
+        result =>{
+          this.setState({
+            posts : result.data.reverse()
+          })
+        }
+        )
+        .catch(err=>console.log(err))
+      }
 
     openForm = () =>{this.setState({show:true})};
 
     closeForm = () =>{this.setState({show:false})};
-  render() {
+
+    poster = (post) =>{
+      const { isAuthenticated,logout } = this.props.auth0;
+        const { user } = this.props.auth0;
+       let postObj = {
+          userName: user.name,
+          userImg: user.picture,
+          book: post.book,
+          title: post.title,
+          review: post.review,
+        }
+      console.log(user);
+      console.log(postObj); 
+      axios
+      .post(`http://localhost:3001/post`,postObj)
+      .then(
+        result =>{
+        
+          this.setState({
+            show: false,
+            posts : result.data.reverse()
+          })
+        }
+        )
+        .catch(err=>console.log(err))
+      }
+     
+      deleteHandler =(id)=>{
+        console.log(id);
+        axios
+        .delete(`http://localhost:3001/deletepost/${id}`)
+        .then(
+          result =>{
+          
+            this.setState({
+              posts : result.data.reverse()
+            })
+          }
+          )
+          .catch(err=>console.log(err))
+      }
+    
+      updateComments=(idComment)=>{
+console.log(idComment);
+      }
+    render() {
+    // console.log(this.state.posts);
     return (
       <>
         <Card id='post' style={{width: '60rem', margin: '50px auto' }}>
@@ -27,9 +89,9 @@ class Review extends React.Component {
         </Card>
 
         {this.state.posts.map(book => {
-            return <PostPlace book={book}/>
+            return this.state.posts===[]?false : <PostPlace updateComments={this.updateComments} delete={this.deleteHandler} book={book}/>; 
         })}
-        <PostForm open={this.state.show} close={this.closeForm}/>
+       {this.state.show && <PostForm fB={this.props.favBooks} poster={this.poster} open={this.state.show} close={this.closeForm}/>}
 
         <Button id='b' href='#post'><p id='up'>Post</p></Button>
       </>
@@ -37,4 +99,4 @@ class Review extends React.Component {
   }
 }
 
-export default Review;
+export default withAuth0(Review);

@@ -164,7 +164,7 @@ class app extends React.Component {
           {isAuthenticated &&
 
            <Route exact path = "/Review">
-             <Review/>
+             <Review favBooks={this.state.favourtie}/>
            </Route> 
           }
 
