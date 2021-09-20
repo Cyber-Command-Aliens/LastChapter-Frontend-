@@ -8,11 +8,18 @@ class Comments extends React.Component {
     this.state ={
       show: false,
       id: this.props.id,
-      likes: 0,
+      likes: 1,
       comments: []
     }
   }
   
+  likesIncrease = () => {
+    this.setState({
+      likes : this.state.likes + this.props.likes 
+    });
+    this.props.updateLikes(this.state.likes, this.state.id)
+  }
+
   render() {
     return (<>
     <Card style={{width: '38rem'}}>
@@ -20,10 +27,10 @@ class Comments extends React.Component {
       <ListGroup.Item>
       <Row style={{textAlign: 'center'}}>
         <Col>
-        <Button style={{width: '15rem'}}>❤️</Button>
+        <Button onClick={()=>{this.likesIncrease()}} style={{width: '15rem'}}>❤️ {this.props.likes }</Button>
         </Col>
         <Col>
-        <Button onClick={()=>{this.props.updateComments('hi')}} style={{width: '15rem'}}>💬</Button>
+        <Button style={{width: '15rem'}}>💬</Button>
         </Col>
       </Row>
       </ListGroup.Item>
