@@ -154,6 +154,7 @@ class app extends React.Component {
             {/* component = { ()=> <Profile favourtie={this.state.favourtie} deleteBook={this.deleteBook} getFavData= {this.getFavData}
             />}> */}
             <Profile
+            
             favourtie={this.state.favourtie} 
             deleteBook={this.deleteBook} 
             getFavData= {this.getFavData}
@@ -164,7 +165,8 @@ class app extends React.Component {
           {isAuthenticated &&
 
            <Route exact path = "/Review">
-             <Review favBooks={this.state.favourtie}/>
+             {console.log(this.state.favourtie)}
+            { <Review favBooks={this.state.favourtie} getFavData= {this.getFavData}/>}
            </Route> 
           }
 

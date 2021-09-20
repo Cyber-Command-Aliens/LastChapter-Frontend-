@@ -16,6 +16,7 @@ class Review extends React.Component {
     }
 
     componentDidMount = () =>{
+      this.props.getFavData();
       console.log(this.props.favBooks);
       axios
       .get(`http://localhost:3001/getposts`)
@@ -42,6 +43,7 @@ class Review extends React.Component {
           book: post.book,
           title: post.title,
           review: post.review,
+          like : 0
         }
       console.log(user);
       console.log(postObj); 
@@ -60,7 +62,6 @@ class Review extends React.Component {
       }
      
       deleteHandler =(id)=>{
-        console.log(id);
         axios
         .delete(`http://localhost:3001/deletepost/${id}`)
         .then(
@@ -74,8 +75,19 @@ class Review extends React.Component {
           .catch(err=>console.log(err))
       }
     
-      updateComments=(idComment)=>{
-console.log(idComment);
+      updateLikes=(like, id)=>{
+        console.log(like);
+        console.log(id);
+        
+        axios
+        .put(`http://localhost:3001/updatelikes/${id}`,{like})
+        .then(result=>{
+          this.setState({
+            posts : result.data.reverse()
+          })
+        })
+        .catch(err=>console.log(err))
+
       }
     render() {
     // console.log(this.state.posts);
@@ -89,7 +101,7 @@ console.log(idComment);
         </Card>
 
         {this.state.posts.map(book => {
-            return this.state.posts===[]?false : <PostPlace updateComments={this.updateComments} delete={this.deleteHandler} book={book}/>; 
+            return this.state.posts===[]?false : <PostPlace updateLikes={this.updateLikes} delete={this.deleteHandler} book={book}/>; 
         })}
        {this.state.show && <PostForm fB={this.props.favBooks} poster={this.poster} open={this.state.show} close={this.closeForm}/>}
 
