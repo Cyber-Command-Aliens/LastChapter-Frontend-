@@ -12,6 +12,7 @@ import Row from 'react-bootstrap/Row';
 import Profile from './Components/Profile/Profile';
 
 
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -175,8 +176,8 @@ class app extends React.Component {
         </Router>
 
          
-            <Footer></Footer>
-          
+        
+        <Footer></Footer>
       </>
 
     );
