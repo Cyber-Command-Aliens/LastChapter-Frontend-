@@ -48,7 +48,7 @@ class PostForm extends React.Component {
             <Button variant="secondary" onClick={this.props.close}>
               Close
             </Button>
-            <Button variant="primary" onClick={()=>{this.props.poster(this.state)}} >
+            <Button variant="primary" onClick={()=>{this.props.poster(this.state); window.location.reload()}} >
               Post
             </Button>
           </Modal.Footer>
