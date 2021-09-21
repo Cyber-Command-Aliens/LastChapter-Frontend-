@@ -1,10 +1,10 @@
-import React from 'react';    
+import React from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import '../Home/BookCards.scss';
-import { Container, Card , Col } from 'react-bootstrap';
+import { Container, Card, Col } from 'react-bootstrap';
 
 
 
@@ -47,38 +47,38 @@ class BookCards extends React.Component {
     };
     return (
       <Container>
-        
+
         <div className="clearfix mt-5 mb-2">
-        <h4 className="float-left">Adventure</h4>
-       
-      </div>
-        
-      <Slider {...settings}  >
-        
+          <h4 className="float-left color ">Adventure</h4>
+
+        </div>
+
+        <Slider {...settings} style={{width:'70rem'}} >
+
           {this.props.catgories.map((item) => {
             console.log(item.catgory);
             if (item.catgory == 'Adventure') {
               return (
                 <React.Fragment>
                   <Col md="11">
-                  <Card >
-                   <Card.Img variant ="top" src = {item.img} alt="Card image" style={{height: '30rem'}}></Card.Img>
-                   <Card.Body>
-                {item.title}
-                   </Card.Body>
-                  </Card>
+                    <Card >
+                      <Card.Img variant="top" src={item.img} alt="Card image" style={{ height: '30rem' }}></Card.Img>
+                      <Card.Body>
+                        {item.title}
+                      </Card.Body>
+                    </Card>
                   </Col>
-                  </React.Fragment>
+                </React.Fragment>
 
               );
-            
+
 
             }
 
 
           })}
         </Slider>
-        </Container>
+      </Container>
 
       // <Carousel.Item>
       //   <img
