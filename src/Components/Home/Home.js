@@ -12,6 +12,9 @@ import Review from "../Review /Review";
 // } from "react-router-dom";
 
 class Home extends React.Component {
+  componentDidMount = () =>{
+    this.props.getFavData();
+  }
   render() {
     // console.log(this.state.catgories)
     return (
