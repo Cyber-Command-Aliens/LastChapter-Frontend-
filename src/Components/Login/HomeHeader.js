@@ -67,8 +67,10 @@ export default function HomeHeader() {
          <span className={classes.colorText2}>Chapter.</span>
           </h1>
          
-    <Button className={classes.btn} variant="contained" disableElevation  onClick={() => loginWithRedirect()}>
-      Log in
+    <Button  className={classes.btn} variant="contained" disableElevation  onClick={() => loginWithRedirect()}>
+    Login
+    <i style={{marginLeft:"20px"}} class="bi bi-box-arrow-in-right"></i>
+     
     </Button>
 
 
@@ -82,10 +84,10 @@ export default function HomeHeader() {
       >
         <div className={classes.container}>
           <h1 className={classes.title}>
-          <span className={classes.colorText}>Welcome to</span>
+          <span className={classes.colorText}>Welcome to <span style={{color:"#7027A0"}}>Last </span></span>
              
-             <span className={classes.colorText2}> My<br /></span>
-           <span className={classes.colorText}>LastChapter Book.</span>
+             <span className={classes.colorText2}><br/>Chapter </span>
+           <span className={classes.colorText}>Book Cloud.</span>
           </h1>
           <Scroll to="card" smooth={true}>
             <IconButton>

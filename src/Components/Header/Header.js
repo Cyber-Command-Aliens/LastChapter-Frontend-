@@ -78,9 +78,11 @@ class Header extends React.Component {
                                 </Navbar.Text>
                                 {isAuthenticated &&
                                
-                                <Button onClick={() => {
+                                <Button  onClick={() => {
                                     logout({ returnTo: window.location.origin });
-                                  }}  style={{margin:'20px'}}variant="outline-info">🚪</Button>
+                                  }}  style={{margin:'20px'}}variant="outline-info">
+                                    <i style={{marginLeft:"3px"}} class="bi bi-box-arrow-left"> Logout</i>
+                                  </Button>
                                 }
                             </Navbar.Collapse>
                     </Container>

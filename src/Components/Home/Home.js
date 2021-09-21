@@ -13,6 +13,36 @@ import './Home.scss'
 
 // i should render the catagory in a single page i will do it later 
 class Home extends React.Component {
+  constructor(props){
+    super(props)
+    this.state={
+      show:false,
+      title: '',
+      img:'',
+      author:'',
+      status:'',
+      pages:'',
+      infoLink: ''
+    }
+  }
+  handleShow =(title,img,author,status,pages,infoLink,catgory) => {
+    this.setState({
+      show: true,
+      title: title,
+      img:img,
+      author:author,
+      status:status,
+      pages:pages,
+      infoLink: infoLink,
+      catgory:catgory
+    })
+    console.log(title);
+  }
+  handleClose = () => {
+    this.setState({
+      show: false
+    })
+  }
   render() {
     let CardsArr = [
       {
@@ -61,12 +91,26 @@ class Home extends React.Component {
  
       <HomeWrapper>
 
-      <BookCards favourite={this.favourite}  catgories={this.props.catgories} ></BookCards>
-      <FilterClassics favourite={this.favourite}  catgories={this.props.catgories}></FilterClassics>
-      <FilterComics favourite={this.favourite}  catgories={this.props.catgories}></FilterComics>
-      <FilterMystery favourite={this.favourite}  catgories={this.props.catgories}></FilterMystery>
-      <FilterHorror favourite={this.favourite}  catgories={this.props.catgories}></FilterHorror>
-      <FilterLove favourite={this.favourite}  catgories={this.props.catgories}></FilterLove>
+      <BookCards 
+      catgory = {this.state.catgory} 
+      infoLink={this.state.infoLink}
+      pages={this.state.pages}
+      status ={this.state.status} 
+      author = {this.state.author} 
+      img={this.state.img} 
+      title = {this.state.title} 
+      handleShow={this.handleShow} 
+      show = {this.state.show} 
+      handleClose = {this.handleClose} 
+      favourite={this.props.favourite}  
+      catgories={this.props.catgories} >
+
+      </BookCards>
+      <FilterClassics handleShow={this.handleShow} show = {this.state.show} handleClose = {this.handleClose} favourite={this.favourite}  catgories={this.props.catgories}></FilterClassics>
+      <FilterComics handleShow={this.handleShow} show = {this.state.show} handleClose = {this.handleClose} favourite={this.favourite}  catgories={this.props.catgories}></FilterComics>
+      <FilterMystery handleShow={this.handleShow} show = {this.state.show} handleClose = {this.handleClose} favourite={this.favourite}  catgories={this.props.catgories}></FilterMystery>
+      <FilterHorror handleShow={this.handleShow} show = {this.state.show} handleClose = {this.handleClose} favourite={this.favourite}  catgories={this.props.catgories}></FilterHorror>
+      <FilterLove handleShow={this.handleShow} show = {this.state.show} handleClose = {this.handleClose} favourite={this.favourite}  catgories={this.props.catgories}></FilterLove>
       </HomeWrapper>
       
         

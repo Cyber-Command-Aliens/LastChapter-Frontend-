@@ -53,10 +53,10 @@ class FilterHorror extends React.Component {
        
       </div>
         
-      <Slider {...settings}  >
+      <Slider {...settings} style={{ width: '70rem' }} >
         
           {this.props.catgories.map((item) => {
-            console.log(item.catgory);
+       
             if (item.catgory == 'Horror') {
               return (
                 <React.Fragment>
