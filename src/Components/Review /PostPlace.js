@@ -7,7 +7,7 @@ class PostPlace extends React.Component {
   render() {
     const { isAuthenticated,logout } = this.props.auth0;
     const { user } = this.props.auth0;
-    console.log(this.props.book);
+    // console.log(this.props.book);
     
     return (
       <>
@@ -42,7 +42,7 @@ class PostPlace extends React.Component {
                       </Col>
                       <Col>
                        {user.email===this.props.book.book.email&&
-                        <Button onClick={()=>{this.props.delete(this.props.book._id)}}>Delete post</Button>
+                        <Button onClick={()=>{this.props.delete(this.props.book._id);window.location.reload()}}>Delete post</Button>
                        }
                       </Col>
                     </Row>
@@ -50,7 +50,7 @@ class PostPlace extends React.Component {
                   <Card.Body>
                     <Card.Title>{this.props.book.title}</Card.Title>
                     <Card.Text>{this.props.book.review}</Card.Text>
-                    <Comments id={this.props.book._id} updateLikes={this.props.updateLikes} likes={this.props.book.likes} />
+                    <Comments id={this.props.book._id} updateComment={this.props.updateComment} updateLikes={this.props.updateLikes} likes={this.props.book.likes} comments={this.props.book.comments}/>
                   </Card.Body>
                 </Card>
               </Col>

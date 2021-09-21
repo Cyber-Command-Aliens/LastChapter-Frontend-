@@ -6,10 +6,11 @@ import Footer from './Components/Footer/Footer';
 import { withAuth0 } from '@auth0/auth0-react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Review from './Components/Review /Review';
-import Login from './Components/Login/Login';
+import HomeLogin from './Components/Login/HomeLogin';
 import axios from 'axios';
 import Row from 'react-bootstrap/Row';
 import Profile from './Components/Profile/Profile';
+
 
 
 import {
@@ -130,7 +131,7 @@ class app extends React.Component {
     return (
       <>
           {!isAuthenticated &&
-            <Login></Login>
+            <HomeLogin />
 
           }
 
@@ -175,8 +176,8 @@ class app extends React.Component {
         </Router>
 
          
-            <Footer></Footer>
-          
+        
+        <Footer></Footer>
       </>
 
     );

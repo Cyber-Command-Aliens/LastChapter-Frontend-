@@ -76,8 +76,8 @@ class Review extends React.Component {
       }
     
       updateLikes=(like, id)=>{
-        console.log(like);
-        console.log(id);
+        // console.log(like);
+        // console.log(id);
         
         axios
         .put(`http://localhost:3001/updatelikes/${id}`,{like})
@@ -88,6 +88,18 @@ class Review extends React.Component {
         })
         .catch(err=>console.log(err))
 
+      }
+
+      updateComment = (comment, id)=>{
+        axios
+        .put(`http://localhost:3001/updatecomments/${id}`,{comment})
+        .then(result=>{
+          this.setState({
+            posts : result.data.reverse()
+          })
+        })
+        .catch(err=>console.log(err))
+        // window.location.reload();
       }
     render() {
     // console.log(this.state.posts);
@@ -101,7 +113,7 @@ class Review extends React.Component {
         </Card>
 
         {this.state.posts.map(book => {
-            return this.state.posts===[]?false : <PostPlace updateLikes={this.updateLikes} delete={this.deleteHandler} book={book}/>; 
+            return this.state.posts===[]?false : <PostPlace updateComment={this.updateComment} updateLikes={this.updateLikes} delete={this.deleteHandler} book={book}/>; 
         })}
        {this.state.show && <PostForm fB={this.props.favBooks} poster={this.poster} open={this.state.show} close={this.closeForm}/>}
 

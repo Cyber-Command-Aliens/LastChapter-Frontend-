@@ -4,7 +4,10 @@ import { withAuth0 } from "@auth0/auth0-react";
 import Row from "react-bootstrap/Row";
 import BookCards from "./BookCards";
 import Profile from "../Profile/Profile";
+import Carousel from 'react-bootstrap/Carousel';
 import Review from "../Review /Review";
+import {HomeWrapper} from './BookCardStyle'
+import FilterClassics from './Classics'
 // import {
 //   BrowserRouter as Router,
 //   Switch,
@@ -16,16 +19,13 @@ class Home extends React.Component {
     // console.log(this.state.catgories)
     return (
       <>
-        <Row xs={2} md={4} lg={6}>
-          {this.props.catgories.map((item) => {
-            return (
-              <BookCards
-                favourite={this.props.favourite}
-                item={item}
-              ></BookCards>
-            );
-          })}
-        </Row>
+      <HomeWrapper>
+
+      <BookCards favourite={this.favourite}  catgories={this.props.catgories} ></BookCards>
+      <FilterClassics favourite={this.favourite}  catgories={this.props.catgories}></FilterClassics>
+      </HomeWrapper>
+      
+        
       </>
     );
   }
