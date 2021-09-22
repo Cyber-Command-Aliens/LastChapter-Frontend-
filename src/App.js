@@ -6,10 +6,12 @@ import Footer from './Components/Footer/Footer';
 import { withAuth0 } from '@auth0/auth0-react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Review from './Components/Review /Review';
-import Login from './Components/Login/Login';
+import HomeLogin from './Components/Login/HomeLogin';
 import axios from 'axios';
 import Row from 'react-bootstrap/Row';
 import Profile from './Components/Profile/Profile';
+import swal from 'sweetalert';
+
 
 
 
@@ -29,6 +31,7 @@ class app extends React.Component {
       show: true,
       loading: true,
       favourtie: [],
+    
     }
   }
   loginHandler = (user) => {
@@ -65,32 +68,49 @@ class app extends React.Component {
   }
   favourite = (title, img, author, status, pages, infoLink) => {
     const { user } = this.props.auth0;
-    const email = user.email
+    const email = user.email;
+    
     console.log(email);
+  
+      
+        
     let postArr = {
-      title: title,
-      img: img,
-      author: author,
-      status: status,
-      email: email,
-      pages: pages,
-      infoLink: infoLink
+          title: title,
+          img: img,
+          author: author,
+          status: status,
+          email: email,
+          pages: pages,
+          infoLink: infoLink
+      
     }
+     
+    let newArr=[];
+     this.state.favourtie.forEach(item=>{ 
+       newArr.push(item.title);
 
-    // console.log(postArr);
-    // change the route link in order to get the data i put att the deafult add 
-    axios
-      .post(`http://localhost:3001/add`, postArr)
-      .then((response) => {
-        console.log(response.data);
-        this.setState({
-          favourtie: response.data
+     })
+     
+      console.log('NewArr',newArr);
+      // change the route link in order to get the data i put att the deafult add 
+      if(!(newArr.includes(postArr.title)))
+      {
+      axios
+        .post(`http://localhost:3001/add`, postArr)
+        .then((response) => {
+          console.log(response.data);
+          this.setState({
+            favourtie: response.data,
+            
+          })
+          console.log(this.state.favourtie);
         })
-        console.log(this.state.favourtie);
-      })
-      .catch((err) => {
-        console.log(err.response);
-      })
+        .catch((err) => {
+          console.log(err.response);
+        })
+  
+      }
+
   }
 
   getFavData = () => {
@@ -113,17 +133,34 @@ class app extends React.Component {
   deleteBook = (id) => {
     const { user } = this.props.auth0;
     const email = user.email;
-    axios
-      .delete(`http://localhost:3001/delete/${id}?email=${email}`)
-      .then(result => {
-        this.setState({
-          favourtie: result.data
-        })
 
-      })
-      .catch(err => {
-        console.log('error in deleting book');
-      })
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to see this Book!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        axios
+        .delete(`http://localhost:3001/delete/${id}?email=${email}`)
+        .then(result => {
+          this.setState({
+            favourtie: result.data
+          })
+  
+        })
+        .catch(err => {
+          console.log('error in deleting book');
+        })
+        swal("Poof! Your Book has been deleted!", {
+          icon: "success",
+        });
+      } else {
+        swal("OK!");
+      }
+    });
+ 
   }
   render() {
     const { isAuthenticated } = this.props.auth0;
@@ -131,7 +168,7 @@ class app extends React.Component {
     return (
       <>
           {!isAuthenticated &&
-            <Login></Login>
+            <HomeLogin />
 
           }
 
@@ -144,6 +181,9 @@ class app extends React.Component {
             <Home 
             catgories={this.state.catgories} 
             favourite={this.favourite}
+            getFavData={this.getFavData}
+
+
             />
             </Route>
           }
@@ -154,12 +194,15 @@ class app extends React.Component {
 
             {/* component = { ()=> <Profile favourtie={this.state.favourtie} deleteBook={this.deleteBook} getFavData= {this.getFavData}
             />}> */}
+         
+            <Row xs={1} md={3} >
             <Profile
             
             favourtie={this.state.favourtie} 
             deleteBook={this.deleteBook} 
             getFavData= {this.getFavData}
-            />
+            /></Row>
+
             </Route>
           }
           
