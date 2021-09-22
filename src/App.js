@@ -164,8 +164,10 @@ class app extends React.Component {
         .catch(err => {
           console.log('error in deleting book');
         })
-        swal("Poof! Your Book has been deleted!", {
+        swal("Deleted!","Poof! Your Book has been deleted!", {
           icon: "success",
+          button:"ok",
+          className:"alertBox1"
         });
       } else {
         swal("OK!");
