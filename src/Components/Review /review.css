@@ -136,7 +136,7 @@
 }
 
 .bookCard:after {
-  animation-delay: -5s;
+  animation-delay: -20s;
   background-color: #93e1d8;
   clip-path: polygon(
     0 0,

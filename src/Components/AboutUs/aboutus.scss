@@ -1,27 +1,51 @@
-body {
-   
-    // color: rgb(10, 9, 9);
-    // padding: 40px;
-    // font-family: Arial;
-    // text-align: center;
-    // background-image: url('./img/ba.jpg');
-    
-    
+.all {
+  margin: auto;
+  width: 50%;
+  height: auto;
+  padding: 10px;
+   // background-image: url('./img/ba.jpg');
   }
-  p{
-      color: rgb(82, 80, 80);
+  .tit{
+    font-size:xx-large;
+    text-align: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+  }
+  .par1{
+      color: rgb(80, 69, 69);
+      font-family:'Times New Roman', Times, serif;
+      font-size: large;
+      text-align:justify;
+      text-align: center;
+  }
+  .image-a {
+    display: flex;
+     justify-content:space-around;
+     color: rgb(82, 80, 80);
       font-family: 'Courier New', Courier, monospace;
       font-size: large;
       text-align:justify;
+      text-align: center;
+}
+.image-abot{
+  width:200px;
+    height: 200px;
+    padding: 13px;
+}
+.team1 {
+  position: relative;
+  border-radius: 50%;
+  height: 70%;
+  width: auto;
+} 
+.team2 {  font-size:small;
+  color: rgb(31, 94, 94);}
+  .shoe-container{
+    display: flex;
+    border-radius: 50%;
+    justify-content:space-around;
+    padding-left: 3px;
   }
-  h1{
-      font-family:Georgia, 'Times New Roman', Times, serif ;
+  .team3 {  
+    border-radius: 50%;
+    width: auto;
   }
-  #div1 {
-      width: 40%; ;
-      
-  
-    
-    text-align: center;
-  }
-  
