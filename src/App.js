@@ -76,7 +76,7 @@ class app extends React.Component {
     
     console.log(email);
   
-      
+    swal( "You Added  The Book To Favorite!", "success");
         
     let postArr = {
           title: title,
