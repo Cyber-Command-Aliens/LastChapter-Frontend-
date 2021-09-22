@@ -98,9 +98,9 @@
     height: 50vh;
     background-image:url('https://wallpaperaccess.com/full/3489613.jpg');
   /* background-color:  #89a8fc; */
-  background-size: cover;
-  background-position: center center;
-  top:100px;
+    background-size: cover;
+    background-position: center center;
+    top:100px;
  
   }
   .infodiv{
