@@ -42,12 +42,12 @@ class Header extends React.Component {
         
                        
             
-                <Navbar  variant="light" className=''>
+                <Navbar  variant="light" >
                 
                     <Container>
                       
                         <Navbar.Brand href="#home">
-                            <img
+                            <img className="imgscroll"
                                 src="https://i.pinimg.com/originals/5f/fb/de/5ffbdeceb84323decd76084b2efca958.png"
                                 width="50"
                                 height="70"
@@ -58,7 +58,7 @@ class Header extends React.Component {
                         </Navbar.Brand>
                         <Navbar.Brand href="#home">
                           
-                          <h6 style={{ fontSize:'30px' }} className="navbar-brand">Last<span className ="navspan">Chapter</span></h6>
+                          <h6 style={{ fontSize:'3rem' }} className="navbar-brand">Last<span className ="navspan">Chapter</span></h6>
 
                       
                       </Navbar.Brand>
@@ -75,7 +75,7 @@ class Header extends React.Component {
                         </Nav>
                         <Navbar.Collapse className="justify-content-end">
                                 <Navbar.Text>
-                                Hi <a className="welcome" style={{textDecoration:'none' , color:' rgb(92, 80, 78)'}} href="/Profile">{user.name}</a>
+                                Hi <a className="welcome" style={{textDecoration:'none' , color:' rgb(92, 80, 78)' ,fontSize:"19px"}} href="/Profile">{user.name}</a>
                              
                                 </Navbar.Text>
                                 {isAuthenticated &&

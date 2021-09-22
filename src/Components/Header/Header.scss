@@ -62,9 +62,13 @@ a{
   }
   .welcome{
     color: #fff !important;
+  
   }
   .navbar-text{
     color: #fff;
+  }
+  .imgscroll{
+    background-image: url('https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg');
   }
 
 
@@ -77,9 +81,8 @@ a{
   background-size: cover ;
 }
 #nav-text-size{
-  font-size: 30px !important;
-  padding-left: 20px;
-  margin-left: 20px;
+  font-size: 20px !important;
+  margin-left: 3rem;
   font-weight: bold !important;
  
 }
