@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import '../Home/BookCards.scss';
 import { Container, Card, Col, Button, Modal } from 'react-bootstrap';
 import Alert from 'react-bootstrap/Alert';
+import "./Modal.css"
 //TODO Create the alret for bookmark 
 //TODO Edit the Footer Style
 //TODO 
@@ -103,43 +104,7 @@ class FilterLove extends React.Component {
             })}
           </Slider>
         </Container>
-        <Modal
-          aria-labelledby="contained-modal-title-vcenter"
-          dialogClassName="modal-90w public-profile-modal-class"
-          centered
-          show={this.props.show}
-          onHide={this.props.handleClose}
-          backdrop="static"
-          keyboard={false}
-          className="my-modal reveal-modal-bg"
-
-        >
-
-
-          <Modal.Body>
-            <img className="img-fluid" src={this.props.img} alt={this.props.title} style={{ height: "400px", width: "200px" }} />
-          </Modal.Body>
-          <Modal.Body className="modal-content">
-
-
-            <p className="modal-content"> Book Name: {this.props.title}</p>
-            <p className="modal-content">Author: {this.props.author}</p>
-            <p className="modal-content">Pages: {this.props.pages}</p>
-            <p className="modal-content">Catagroy: {this.props.catgory}</p>
-            <p className="modal-content">Type: {this.props.status}</p>
-            <Button style={{ marginRight: "24rem" }} variant="outline-info">
-              <i class="bi bi-info-square"></i>
-              <a style={{ textDecoration: "none" }} href={this.props.infoLink}> Info</a>
-
-            </Button>
-          </Modal.Body>
-          <Button style={{ display: "inline-block" }} variant="outline-danger" onClick={this.props.handleClose}>
-            <i class="bi bi-x-lg"></i>  Close
-          </Button>
-
-
-
-        </Modal>
+      
       </>
 
     )

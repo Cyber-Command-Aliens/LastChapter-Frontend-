@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Modal, Button } from "react-bootstrap";
 import { withAuth0 } from '@auth0/auth0-react';
-
+import "./Modal.css"
 class PostForm extends React.Component {
   constructor(props) {
     super(props);
@@ -24,7 +24,7 @@ class PostForm extends React.Component {
     console.log(this.state);
     return (
       <>
-        <Modal show={this.props.open} onHide={this.props.close}>
+        <Modal centered show={this.props.open} onHide={this.props.close}>
           <Modal.Header closeButton>
             <Modal.Title>Post a review</Modal.Title>
           </Modal.Header>
@@ -45,7 +45,7 @@ class PostForm extends React.Component {
             />
           </Modal.Body>
           <Modal.Footer>
-            <Button className='formButtonC' variant="secondary" onClick={this.props.close}>
+            <Button className='formButtonC' variant="danger" onClick={this.props.close}>
               Close
             </Button>
             <Button className='formButtonS' variant="primary" onClick={()=>{this.props.poster(this.state); window.location.reload()}} >
