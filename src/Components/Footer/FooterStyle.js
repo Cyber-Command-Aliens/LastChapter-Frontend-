@@ -4,10 +4,10 @@ export const Box = styled.div`
   padding: 80px 60px;
   background: orange;
   position: absolute;
-  background: #6a3093;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #a044ff, #6a3093);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #a044ff, #6a3093); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  
+  background: #6a3093;  
+  background: -webkit-linear-gradient(to right, #a044ff, #6a3093); 
+  background: linear-gradient(to right, #a044ff, #6a3093); 
+
   color: #fff;
   transition: all 0.3s, ease;
   width: 100%;

@@ -104,8 +104,8 @@ class Comments extends React.Component {
                 this.pushComment(this.state.comment); this.setState({commentPlaceSwitch:true})
               }}
             >
-              {" "}
-              Add comments
+             Add comments <i class="bi bi-plus-circle"></i>
+            
             </button>
             <Modal
               show={this.state.show}
