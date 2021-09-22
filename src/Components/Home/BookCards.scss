@@ -4,11 +4,34 @@ a{
     text-decoration: none;
 }
 html{ zoom: 80%; }
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #6a3093;  
+    background: -webkit-linear-gradient(to right, #a044ff, #6a3093); 
+    background: linear-gradient(to right, #a044ff, #6a3093); 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #6a3093;  
+    background: -webkit-linear-gradient(to right, #a044ff, #6a3093); 
+    background: linear-gradient(to right, #a044ff, #6a3093); 
+  }
 .color{
     color: #008575;
-    font-weight: 800;
-    font-family: 'Bebas Neue', cursive;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    margin-left: 30rem;
+    font-size: 2rem;
 }
 .reveal-modal-bg {
     background: rgba(0, 0, 0, 0.45);

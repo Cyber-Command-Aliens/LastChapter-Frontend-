@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
   Box,
   Container,
@@ -16,16 +17,14 @@ const Footer = () => {
                    marginTop: "-50px" }}>
                        
       </h1>
-      <Container className>
-        <Row>
-          <Column>
-            <Heading>Contact Us</Heading>
-            <FooterLink href="#"><i class="bi bi-facebook">Uttar Pradesh</i></FooterLink>
+      <Container className="Footer-text">
+      
+            <Heading >Contact Us</Heading>
+            <FooterLink className="navlinks" href="#"><i class="bi bi-facebook">Uttar Pradesh</i></FooterLink>
             <FooterLink href="#">Ahemdabad</FooterLink>
             <FooterLink href="#">Indore</FooterLink>
             <FooterLink href="#">Mumbai</FooterLink>
-          </Column>
-        </Row>
+    
       </Container>
     </Box>
   );

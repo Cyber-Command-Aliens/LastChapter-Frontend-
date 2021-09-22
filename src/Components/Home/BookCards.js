@@ -65,13 +65,14 @@ setclose= () => {
     };
     return (
       <>
+         
+
         <Container>
 
-          <div className="clearfix mt-5 mb-2">
+        <div className="clearfix mt-5 mb-2">
             <h4 className="float-left color ">Adventure</h4>
 
           </div>
-
           <Slider {...settings} style={{ width: '70rem' }} >
             {this.props.catgories.map((item) => {
 
