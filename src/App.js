@@ -13,7 +13,10 @@ import Profile from './Components/Profile/Profile';
 import AboutUs  from './Components/AboutUs/AboutUs';
 import swal from 'sweetalert';
 
-
+//TODO: edit the pprofile style
+//TODO: edit the buttons 
+//TODO: edit the footer
+//TODO: Add Alert !
 
 
 import {
@@ -73,7 +76,7 @@ class app extends React.Component {
     
     console.log(email);
   
-      
+    swal( "You Added  The Book To Favorite!", "success");
         
     let postArr = {
           title: title,
@@ -139,7 +142,7 @@ class app extends React.Component {
       title: "Are you sure?",
       text: "Once deleted, you will not be able to see this Book!",
       icon: "warning",
-      buttons: true,
+      buttons: ["Cancel","Yes"],
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
