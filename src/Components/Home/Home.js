@@ -51,9 +51,9 @@ class Home extends React.Component {
         desc: 'Get 2x points on all books by our featured authors'
       },
       {
-        title: 'The Wish Giveaway & Double Points',
-        img: 'https://static.thriftbooks.com/general/DT-M--544x144_a605f0a8.jpg',
-        desc: 'Pre-order for a chance to win, and get 2x points!'
+        title: 'Fresh Fall Reads',
+        img: 'https://static.thriftbooks.com/general/DT-S-_264x144_f386266b.jpg',
+        desc: 'Cozy up with a good book!'
       },
       // {
       //   title: 'Summer Look Back',
@@ -71,8 +71,8 @@ class Home extends React.Component {
           <Row xs={2} md={2} className="g-3">
             {CardsArr.map((item) => (
               <Col>
-                <Card style={{ marginTop: '40px' }} className="Cards">
-                  <Card.Img variant="top" src={item.img} />
+                <Card style={{ marginTop: '40px' , width:"33rem"}} className="Cards">
+                  <Card.Img variant="top" src={item.img} height="300rem" />
                   <Card.Body>
                     <Card.Title>
                       <a style={{ textDecoration: 'none', color: 'Black' }} href="">{item.title} </a><br></br>
