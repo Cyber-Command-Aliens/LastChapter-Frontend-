@@ -57,9 +57,10 @@
 }
 #userEmail{
   margin-left: 40%;
- 
+  margin-bottom: 20px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  margin-bottom: 200px;
   
   /* font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
@@ -109,7 +110,7 @@
     border: 5px ;
     object-fit: cover;
     height: 40vh;
-    width: 55%;
+    width: 57%;
     margin-left: 22%;
     text-shadow: gray;
     padding: 30px;
