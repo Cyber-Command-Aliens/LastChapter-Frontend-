@@ -64,9 +64,11 @@ class Profile extends Component {
            
                 {this.props.favourtie.map(item => {
                     return(
+                        <Container style={{marginBottom:"30px"}}>
+
                         
                      <Col>
-                    <Card style={{ width: '18rem', marginTop: '50px' }}  className="cardprofile">
+                    <Card style={{ width: '18rem', marginTop: '50px', }}  className="cardprofile">
                         <Card.Header> <a href={item.infoLink}> <Card.Img variant="top" src={item.img} className="cardimage"  /></a> </Card.Header>
                        
                         <Card.Body>
@@ -83,6 +85,7 @@ class Profile extends Component {
 
                          </Card.Footer>
                     </Card></Col>  
+                    </Container>
                     )
                 })}
 
