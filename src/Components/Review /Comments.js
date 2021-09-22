@@ -1,4 +1,7 @@
 import React from "react";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
+import { GoComment } from "react-icons/go";
+
 import {
   Card,
   Button,
@@ -17,35 +20,24 @@ class Comments extends React.Component {
       show: false,
       id: this.props.id,
       comment: "",
-      likeButtonSwitch: false
+      likeButtonSwitch: false,
+      commentPlaceSwitch: false
     };
   }
 
   likesIncrease = () => {
-    // this.setState({
-    //   likes : this.state.likes + 1
-    // });
-    // setTimeout(() => {
-    //   this.props.updateLikes(this.state.likes, this.state.id)
-    // }, 10);
     let likes = this.props.likes + 1;
     this.props.updateLikes(likes, this.state.id);
     this.setState({
-      likeButtonSwitch: true
-    })
+      likeButtonSwitch: true,
+    });
   };
   likesDecrease = () => {
-    // this.setState({
-    //   likes : this.state.likes + 1
-    // });
-    // setTimeout(() => {
-    //   this.props.updateLikes(this.state.likes, this.state.id)
-    // }, 10);
     let likes = this.props.likes - 1;
     this.props.updateLikes(likes, this.state.id);
     this.setState({
-      likeButtonSwitch: false
-    })
+      likeButtonSwitch: false,
+    });
   };
 
   pushComment = (c) => {
@@ -61,47 +53,77 @@ class Comments extends React.Component {
             <ListGroup.Item>
               <Row style={{ textAlign: "center" }}>
                 <Col>
-                {this.state.likeButtonSwitch? <Button onClick={() => {this.likesDecrease();}} style={{ width: "15rem" }}>❤️ {this.props.likes} </Button>: <Button onClick={() => { this.likesIncrease(); }} style={{ width: "15rem" }}>♡ {this.props.likes}</Button>}
-                  
-                  
+                  {this.state.likeButtonSwitch ? (
+                    <button
+                      className="likeAndComment"
+                      onClick={() => {
+                        this.likesDecrease();
+                      }}
+                      style={{ width: "15rem" }}
+                    >
+                      {" "}
+                      <FaHeart /> {this.props.likes}{" "}
+                    </button>
+                  ) : (
+                    <button
+                      className="likeAndComment"
+                      onClick={() => {
+                        this.likesIncrease();
+                      }}
+                      style={{ width: "15rem" }}
+                    >
+                      {" "}
+                      <FaRegHeart /> {this.props.likes}
+                    </button>
+                  )}
                 </Col>
                 <Col>
-                  <Button
+                  <button
+                    className="likeAndComment"
                     onClick={() => {
                       this.setState({ show: true });
                     }}
                     style={{ width: "15rem" }}
                   >
-                    💬 {this.props.comments.length}
-                  </Button>
+                    <GoComment /> {this.props.comments.length}
+                  </button>
                 </Col>
               </Row>
             </ListGroup.Item>
             <br />
-            <Form.Control
+            {this.state.commentPlaceSwitch ? <p><a style={{cursor: 'pointer', color : 'indigo', fontWeight: 'bold', textDecoration: 'underline'}} onClick={()=>{this.setState({commentPlaceSwitch:false})}}>click</a> to add another comment</p>: <Form.Control
               onChange={(e) => {
                 this.setState({ comment: e.target.value });
               }}
               type="text"
               placeholder="Comment"
-            />
-            <Button
+            />}
+            <button
+              class="comment"
               onClick={() => {
-                this.pushComment(this.state.comment);
+                this.pushComment(this.state.comment); this.setState({commentPlaceSwitch:true})
               }}
             >
               {" "}
               Add comments
-            </Button>
+            </button>
             <Modal
               show={this.state.show}
               onHide={() => {
                 this.setState({ show: false });
               }}
             >
-              {this.props.comments.map((c) => {
+              <Card>
+                <Card.Header >
+                  <Card.Title>Comments</Card.Title>
+                </Card.Header>
+                <Card.Body>
+                {this.props.comments.map((c) => {
                 return <Comment comment={c} />;
               })}
+                </Card.Body>
+              </Card>
+              
             </Modal>
           </Card.Body>
         </Card>
