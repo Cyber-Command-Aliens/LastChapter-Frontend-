@@ -93,7 +93,6 @@
   background-color: #ffc107;
   border-color: #ffc107;
   border-radius: 4px;
-  box-shadow: 0 5px 0 rgb(67, 19, 112);
   color: black;
   margin: 8px;
   padding: 12px 20px;
@@ -262,8 +261,9 @@
 }
 
 .editButtons:hover,.infoButton:hover,.comment:hover,.formButtonS:hover{
-    border:rgb(82, 30, 131);
-    background-color: rgb(119, 86, 143);
+    border:#ffc107;
+    background-color:#ecb309;
+ 
 }
 
 .commentPlace{

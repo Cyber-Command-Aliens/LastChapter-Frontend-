@@ -13,8 +13,8 @@ import Profile from './Components/Profile/Profile';
 import AboutUs  from './Components/AboutUs/AboutUs';
 import swal from 'sweetalert';
 
-//TODO: edit the pprofile style
-//TODO: edit the buttons 
+//TODO: edit the pprofile style Done 
+//TODO: edit the buttons Done
 //TODO: edit the footer
 //TODO: Add Alert !
 
