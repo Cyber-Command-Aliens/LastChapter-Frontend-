@@ -12,6 +12,7 @@ import Row from 'react-bootstrap/Row';
 import Profile from './Components/Profile/Profile';
 import AboutUs  from './Components/AboutUs/AboutUs';
 import swal from 'sweetalert';
+import "./App.css"
 
 //TODO: edit the pprofile style Done 
 //TODO: edit the buttons Done
@@ -76,7 +77,12 @@ class app extends React.Component {
     
     console.log(email);
   
-    swal( "You Added  The Book To Favorite!", "success");
+    swal({
+      text: "Saved to Profile!",
+      icon: "success",
+      buttons:"Ok",
+      className:"alertBox1"
+    })
         
     let postArr = {
           title: title,
@@ -144,6 +150,7 @@ class app extends React.Component {
       icon: "warning",
       buttons: ["Cancel","Yes"],
       dangerMode: true,
+      className:"alertBox1"
     }).then((willDelete) => {
       if (willDelete) {
         axios
