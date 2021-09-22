@@ -9,7 +9,7 @@ import { Container, Card , Col } from 'react-bootstrap';
 
 
 
-class FilterClassics extends React.Component {
+class FilterComics extends React.Component {
 
   render() {
     var settings = {
@@ -49,15 +49,15 @@ class FilterClassics extends React.Component {
       <Container>
         
         <div className="clearfix mt-5 mb-2">
-        <h4 className="float-left color">Classics</h4>
+        <h4 className="float-left color">Comics</h4>
        
       </div>
         
       <Slider {...settings} style={{ width: '70rem' }}  >
         
           {this.props.catgories.map((item) => {
-
-            if (item.catgory == 'Classics') {
+       
+            if (item.catgory == 'Comics') {
               return (
                 <React.Fragment>
                   <Col md="11">
@@ -74,7 +74,8 @@ class FilterClassics extends React.Component {
             
 
             }
-           
+          
+
 
           })}
         </Slider>
@@ -91,4 +92,4 @@ class FilterClassics extends React.Component {
   }
 }
 
-export default FilterClassics;
+export default FilterComics;

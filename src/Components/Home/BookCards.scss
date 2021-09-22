@@ -1,3 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:ital,wght@0,300;0,700;0,900;1,700&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
 a{
     text-decoration: none;
 }
+// html{ zoom: 80%; }
+.color{
+    color: #008575;
+    font-weight: 800;
+    font-family: 'Bebas Neue', cursive;
+    font-family: 'Lato', sans-serif;
+}
+.reveal-modal-bg {
+    background: rgba(0, 0, 0, 0.45);
+    display: none;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom:0;
+    width: auto !important;
+    z-index: 40;
+}
+  
+.my-modal .modal-content {
+   color: #008575;
+   font-weight: 800;
+  }
+
+
+  .btn-label {position: relative;left: -12px;display: inline-block;padding: 6px 12px;background: rgba(0,0,0,0.15);border-radius: 3px 0 0 3px;}
+  .btn-labeled {padding-top: 0;padding-bottom: 0;}
+  .btn { margin-bottom:10px; }

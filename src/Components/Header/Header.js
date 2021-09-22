@@ -5,10 +5,32 @@ import Nav from 'react-bootstrap/Nav';
 import './Header.scss';
 import Button from 'react-bootstrap/Button';
 import { withAuth0 } from '@auth0/auth0-react';
-import { Link } from "react-router-dom";
+
 
 class Header extends React.Component {
+    constructor(props){
+        super(props)
+       
+    }
+    componentDidMount() {
+        window.addEventListener("scroll", this.handleScroll);
+      }
+    
+      componentWillUnmount() {
+        window.removeEventListener("scroll", this.handleScroll);
+      }
+    
+      handleScroll = () => {
+        if (window.scrollY > 20) {
+          document.querySelector(".navbar").className = "navbar navbar-expand scroll"
+         
+        } else {
+          document.querySelector(".navbar").className = "navbar navbar-expand navbar-ligh ";
+        }
+      };
+
     render() {
+        window.addEventListener('scroll', this.changeColor)
         // const { loginWithRedirect } = this.props.auth0;
         const { isAuthenticated,logout } = this.props.auth0;
         const { user } = this.props.auth0;
@@ -16,24 +38,29 @@ class Header extends React.Component {
         
         return (
             <>
-         
+        
+                       
             
-                <Navbar bg="light" variant="light">
+                <Navbar  variant="light" className=''>
                 
                     <Container>
-                        
-                        <Navbar.Brand href="#home">
-                            <h6 style={{ fontFamily: 'Italianno', fontSize: '50px' }}>LastChapter</h6>
-                        </Navbar.Brand>
+                      
                         <Navbar.Brand href="#home">
                             <img
                                 src="https://i.pinimg.com/originals/5f/fb/de/5ffbdeceb84323decd76084b2efca958.png"
-                                width="80"
-                                height="60"
+                                width="50"
+                                height="70"
                                 className="d-inline-block align-top"
-                                alt="React Bootstrap logo"
+                                alt="LasCHapter"
+                         
                             />
                         </Navbar.Brand>
+                        <Navbar.Brand href="#home">
+                          
+                          <h6 style={{ fontSize:'30px' }} className="navbar-brand">Last<span className ="navspan">Chapter</span></h6>
+
+                      
+                      </Navbar.Brand>
                         
                         <Nav className="me-auto">
                             <Nav.Link href="/">Home</Nav.Link>
@@ -47,13 +74,15 @@ class Header extends React.Component {
                         </Nav>
                         <Navbar.Collapse className="justify-content-end">
                                 <Navbar.Text>
-                                    Signed in as: <a href="#login">{user.name}</a>
+                                Hi <a className="welcome" style={{textDecoration:'none' , color:' rgb(92, 80, 78)'}}href="/Profile">{user.name}</a>
                                 </Navbar.Text>
                                 {isAuthenticated &&
                                
-                                <Button onClick={() => {
+                                <Button  onClick={() => {
                                     logout({ returnTo: window.location.origin });
-                                  }}  style={{margin:'20px'}}variant="outline-info">🚪</Button>
+                                  }}  style={{margin:'20px'}}variant="outline-info">
+                                    <i style={{marginLeft:"3px"}} class="bi bi-box-arrow-left"> Logout</i>
+                                  </Button>
                                 }
                             </Navbar.Collapse>
                     </Container>
