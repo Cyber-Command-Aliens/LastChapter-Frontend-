@@ -2,14 +2,14 @@ import React from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import {Link} from 'react-router-dom'
+
 import '../Home/BookCards.scss';
 import { Container, Card , Col } from 'react-bootstrap';
 
 
 
 
-class FilterClassics extends React.Component {
+class FilterLove extends React.Component {
 
   render() {
     var settings = {
@@ -46,18 +46,18 @@ class FilterClassics extends React.Component {
       ]
     };
     return (
-      <Container>
+      <Container style={{marginBottom: '10rem'}}>
         
         <div className="clearfix mt-5 mb-2">
-        <h4 className="float-left color">Classics</h4>
+        <h4 className="float-left color">Romance</h4>
        
       </div>
         
-      <Slider {...settings} style={{ width: '70rem' }}  >
+      <Slider {...settings} style={{ width: '70rem' }} >
         
           {this.props.catgories.map((item) => {
-
-            if (item.catgory == 'Classics') {
+    
+            if (item.catgory == 'Love') {
               return (
                 <React.Fragment>
                   <Col md="11">
@@ -74,7 +74,8 @@ class FilterClassics extends React.Component {
             
 
             }
-           
+          
+
 
           })}
         </Slider>
@@ -91,4 +92,4 @@ class FilterClassics extends React.Component {
   }
 }
 
-export default FilterClassics;
+export default FilterLove;

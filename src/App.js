@@ -10,6 +10,7 @@ import HomeLogin from './Components/Login/HomeLogin';
 import axios from 'axios';
 import Row from 'react-bootstrap/Row';
 import Profile from './Components/Profile/Profile';
+import AboutUs  from './Components/AboutUs/AboutUs';
 import swal from 'sweetalert';
 
 
@@ -213,7 +214,10 @@ class app extends React.Component {
             { <Review favBooks={this.state.favourtie} getFavData= {this.getFavData}/>}
            </Route> 
           }
-
+  <Route exact path = "/AboutUs">
+         
+            { <AboutUs/>}
+           </Route> 
           
        
         </Router>
