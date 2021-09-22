@@ -49,7 +49,7 @@ class Profile extends Component {
         <div class="infodiv"> 
           <img src={this.state.userImg} id="imgId"/> 
             <p id="userName">{this.state.userName}</p>
-            <p id="userEmail">{this.state.email}</p>
+           
         
 
                 </div>
