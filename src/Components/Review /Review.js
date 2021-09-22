@@ -5,6 +5,7 @@ import PostForm from "./PostForm";
 import './review.css';
 import { withAuth0 } from '@auth0/auth0-react';
 import axios from "axios";
+import { FaRegHeart } from 'react-icons';
 
 class Review extends React.Component {
     constructor(props){
@@ -105,10 +106,11 @@ class Review extends React.Component {
     // console.log(this.state.posts);
     return (
       <>
-        <Card id='post' style={{width: '60rem', margin: '50px auto' }}>
-          <Card.Header>What is your Opinion . . .</Card.Header>
-          <Card.Body>
-          <Form.Control onClick={this.openForm} as="textarea" rows={2} placeholder='Select a book, and give your opinion about it ...' />
+      <h1 id='post'>Reviews</h1>
+        <Card  style={{width: '60rem', margin: '50px auto' }}>
+          <Card.Header className='cardHeader' >What is your Opinion . . .</Card.Header>
+          <Card.Body className='cardBody' >
+          <Form.Control className='cardText' onClick={this.openForm} as="textarea" rows={2} placeholder='Select a book, and give your opinion about it ...' />
           </Card.Body>
         </Card>
 

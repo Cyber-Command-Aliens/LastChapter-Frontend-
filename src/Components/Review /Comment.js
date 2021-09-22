@@ -14,6 +14,7 @@ class Comment extends React.Component {
     super(props);
     this.state = {
       edit: false,
+      comment: this.props.comment
     };
   }
 
@@ -24,28 +25,33 @@ class Comment extends React.Component {
           <Row>
             <Col md={8}>
               {this.state.edit ? (
-                <Form.Control defaultValue="comment 1" />
+                <Form.Control onChange={e=>{this.setState({comment: e.target.value})}}
+                  className="commentPlace"
+                  defaultValue={this.state.comment}
+                />
               ) : (
-                <ListGroup.Item>{this.props.comment}</ListGroup.Item>
+                <ListGroup.Item className="commentPlace">
+                  {this.state.comment}
+                </ListGroup.Item>
               )}
             </Col>
             <Col md={4}>
-              {this.state.edit && (
-                <Button
+              {this.state.edit ? (
+                <Button className='editButtons'
                   onClick={() => {
                     this.setState({ edit: false });
                   }}
                 >
                   submit
                 </Button>
-              )}
-              <Button
-                onClick={() => {
-                  this.setState({ edit: true });
-                }}
-              >
-                Edit
-              </Button>
+              ) : <button className='editButtons'
+              onClick={() => {
+                this.setState({ edit: true });
+              }}
+            >
+              Edit
+            </button>}
+              
             </Col>
           </Row>
         </ListGroup>

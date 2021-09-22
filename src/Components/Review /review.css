@@ -1,15 +1,281 @@
-#up{
-   
-    text-decoration: none;
-    color: #000;
-    font-weight: bolder;
-    font-size: 20px;
+#up {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-weight: bolder;
+  font-size: 20px;
+  position: relative;
+  top: 6px;
 }
 
-#b{
-    position: sticky;
-    bottom: 5%;
-    margin-left: 10%;
-    z-index: 1;
-    border-radius: 50%;
+#b {
+  position: sticky;
+  bottom: 5%;
+  margin-left: 10%;
+  z-index: 1;
+  border-radius: 50%;
+  border: rgb(98, 31, 161) solid;
+  background-color: rgb(113 50 160);
+  transition: 500ms;
+}
+
+#b:hover {
+  transition: 500ms;
+  border: rgb(98, 31, 161) solid;
+  background-color: rgb(60, 14, 104);
+}
+
+#post {
+  margin: 5% 10% 5% 10%;
+  font-weight: bolder;
+}
+
+.cardHeader {
+  background-color: rgb(113 50 160);
+  font-size: 15;
+  border: rgb(98, 31, 161) solid;
+  color: white;
+  font-weight: bolder;
+}
+
+.cardBody {
+  border: rgb(98, 31, 161) solid 1px;
+  border-top: none;
+}
+
+.cardText:hover {
+  background-color: rgba(209, 231, 231, 0.363);
+  cursor: pointer;
+}
+
+.cardImg {
+  width: 125%;
+}
+
+.email {
+  font-size: 15px;
+  font-weight: 350;
+  position: relative;
+  bottom: 15%;
+}
+
+.x {
+  color: rgb(49, 12, 83);
+  cursor: pointer;
+  position: relative;
+  left: 75%;
+  font-weight: 700;
+  font-size: 20px;
+  transition: 300ms;
+}
+.x:hover {
+  transition: 300ms;
+  text-shadow: 0px 0px 2px cornsilk;
+  color: rgb(93, 54, 129);
+}
+
+.likeAndComment {
+  background-color: rgba(255, 255, 255, 0);
+  color: black;
+  transition: 500ms;
+  border-radius: 5px;
+  border: rgba(0, 0, 0, 0);
+}
+
+.likeAndComment:hover {
+  transition: 500ms;
+  background-color: rgba(255, 255, 255, 0);
+  box-shadow: inset 0 0 0 25px rgba(68, 62, 62, 0.329);
+}
+
+.formButtonS,.infoButton, .comment {
+  border: 0;
+  background: rgb(113 50 160);
+  border-radius: 4px;
+  box-shadow: 0 5px 0 rgb(67, 19, 112);
+  color: #fff;
+  margin: 8px;
+  padding: 12px 20px;
+  transition: all 0.1s linear;
+}
+
+.editButtons:active,.formButtonS:active, .infoButton:active, .comment:active {
+  box-shadow: 0 2px 0 rgb(67, 19, 112);
+  transform: translateY(3px);
+}
+
+.bookImg {
+  width: 200px;
+  height: 300px;
+  margin: auto;
+  border-bottom: solid rgba(128, 128, 128, 0.514) 1px;
+}
+
+.frame {
+  background-color: rgba(233, 228, 219, 0.575);
+  position: relative;
+  box-shadow: 5px 5px 22px 0 rgba(0, 0, 0, 0.75);
+}
+
+
+.innerBookCard{
+    z-index: 3;
+}
+.bookCard:after,
+.bookCard:before {
+  mix-blend-mode: multiply;
+  filter: none;
+  z-index: -1;
+  content: "";
+  width: calc(100% + (50px * 2));
+  height: calc(100% + (50px * 2));
+  position: absolute;
+  display: block;
+  animation: border 10s ease-in-out infinite;
+  transform: translateX(-50px) translateY(-50px);
+}
+
+.bookCard:after {
+  animation-delay: -5s;
+  background-color: #93e1d8;
+  clip-path: polygon(
+    0 0,
+    calc(100% - (33.3333333333px)) calc(0% + (33.3333333333px)),
+    100% 100%,
+    calc(0% + (33.3333333333px)) calc(100% - (33.3333333333px))
+  );
+}
+.bookCard:after,
+.bookCard:before {
+  mix-blend-mode: multiply;
+  filter: none;
+  z-index: 1;
+  content: "";
+  width: calc(100% + (50px * 2));
+  height: calc(100% + (50px * 2));
+  position: absolute;
+  display: block;
+  animation: border 10s ease-in-out infinite;
+  transform: translateX(-50px) translateY(-50px);
+}
+@keyframes border {
+  0%,
+  100% {
+    -webkit-clip-path: polygon(
+      0 0,
+      calc(100% - (33.3333333333px)) calc(0% + (33.3333333333px)),
+      100% 100%,
+      calc(0% + (33.3333333333px)) calc(100% - (33.3333333333px))
+    );
+    clip-path: polygon(
+      0 0,
+      calc(100% - (33.3333333333px)) calc(0% + (33.3333333333px)),
+      100% 100%,
+      calc(0% + (33.3333333333px)) calc(100% - (33.3333333333px))
+    );
+  }
+  50% {
+    -webkit-clip-path: polygon(
+      calc(0% + (33.3333333333px)) calc(0% + (33.3333333333px)),
+      100% 0,
+      calc(100% - (33.3333333333px)) calc(100% - (33.3333333333px)),
+      0 100%
+    );
+    clip-path: polygon(
+      calc(0% + (33.3333333333px)) calc(0% + (33.3333333333px)),
+      100% 0,
+      calc(100% - (33.3333333333px)) calc(100% - (33.3333333333px)),
+      0 100%
+    );
+  }
+}
+
+.bookCard:after {
+  animation-delay: -5s;
+  background-color: #93e1d8;
+  clip-path: polygon(
+    0 0,
+    calc(100% - (33.3333333333px)) calc(0% + (33.3333333333px)),
+    100% 100%,
+    calc(0% + (33.3333333333px)) calc(100% - (33.3333333333px))
+  );
+}
+.bookCard:before {
+  background-color: #aa4465;
+  clip-path: polygon(
+    calc(0% + (33.3333333333px)) calc(0% + (33.3333333333px)),
+    100% 0,
+    calc(100% - (33.3333333333px)) calc(100% - (33.3333333333px)),
+    0 100%
+  );
+}
+
+.bookCard:hover:after {
+  animation-delay: -0.1s;
+}
+.bookCard:hover:before,
+.bookCard:hover:after {
+  animation-duration: 0.2s;
+}
+.bookCard:before {
+  background-color: #aa4465;
+  clip-path: polygon(
+    calc(0% + (33.3333333333px)) calc(0% + (33.3333333333px)),
+    100% 0,
+    calc(100% - (33.3333333333px)) calc(100% - (33.3333333333px)),
+    0 100%
+  );
+}
+
+.infoButton a{
+    color: honeydew;
+    text-decoration: none;
+    position: relative;
+    bottom: 135%;
+}
+
+.infoButton{
+    height: 30px;
+}
+
+.title{
+    font-size: 15px;
+    font-weight: bold;
+}
+
+
+.formButtonC{
+    border: 0;
+    background: rgb(153, 146, 146);
+    border-radius: 4px;
+    box-shadow: 0 3px 0 rgb(65, 63, 63);
+    color: #fff;
+    margin: 0px;
+    padding: 8px 18px;
+    transition: all 0.1s linear;
+}
+
+.formButtonC:active {
+    box-shadow: 0 2px 0 rgb(65, 63, 63);
+    transform: translateY(3px);
+}
+
+.editButtons:hover,.infoButton:hover,.comment:hover,.formButtonS:hover{
+    border:rgb(82, 30, 131);
+    background-color: rgb(119, 86, 143);
+}
+
+.commentPlace{
+    margin: 5px 10px;
+    width: 120%;
+}
+
+.editButtons{
+    background-color: #6a3093;
+    border:rgb(82, 30, 131) solid 2px;
+    box-shadow: 0 2px 0 rgb(65, 63, 63);
+    padding: 5px;
+    margin: 3px auto;
+    border-radius: 15%;
+    position: relative;
+    left: 50%;
 }
