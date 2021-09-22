@@ -21,9 +21,9 @@ export const Box = styled.div`
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
+   
     max-width: 1000px;
-    margin: 0 auto;
+
     /* background: red; */
 `
 
@@ -32,6 +32,7 @@ export const Column = styled.div`
   flex-direction: column;
   text-align: left;
   margin-left: 60px;
+  
 `;
 
 export const Row = styled.div`
@@ -50,20 +51,21 @@ export const Row = styled.div`
 export const FooterLink = styled.a`
   color: #fff;
   margin-bottom: 20px;
-  font-size: 12px;
+  font-size: 30px !important;
   text-decoration: none;
    
   &:hover {
-      color: green;
+      color: #ffc107;
       transition: 200ms ease-in;
   }
 `;
 
 export const Heading = styled.p`
-  font-size: 24px;
+  font-size: 60px;
   color: #fff;
   margin-bottom: 40px;
   font-weight: bold;
+
 `;
 
 export const p = styled.p`
