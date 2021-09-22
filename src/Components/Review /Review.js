@@ -20,7 +20,7 @@ class Review extends React.Component {
       this.props.getFavData();
       console.log(this.props.favBooks);
       axios
-      .get(`http://localhost:3001/getposts`)
+      .get(`https://lastchapter2021.herokuapp.com/getposts`)
       .then(
         result =>{
           this.setState({
@@ -49,7 +49,7 @@ class Review extends React.Component {
       console.log(user);
       console.log(postObj); 
       axios
-      .post(`http://localhost:3001/post`,postObj)
+      .post(`https://lastchapter2021.herokuapp.com/post`,postObj)
       .then(
         result =>{
         
@@ -64,7 +64,7 @@ class Review extends React.Component {
      
       deleteHandler =(id)=>{
         axios
-        .delete(`http://localhost:3001/deletepost/${id}`)
+        .delete(`https://lastchapter2021.herokuapp.com/deletepost/${id}`)
         .then(
           result =>{
           
@@ -81,7 +81,7 @@ class Review extends React.Component {
         // console.log(id);
         
         axios
-        .put(`http://localhost:3001/updatelikes/${id}`,{like})
+        .put(`https://lastchapter2021.herokuapp.com/updatelikes/${id}`,{like})
         .then(result=>{
           this.setState({
             posts : result.data.reverse()
@@ -93,7 +93,7 @@ class Review extends React.Component {
 
       updateComment = (comment, id)=>{
         axios
-        .put(`http://localhost:3001/updatecomments/${id}`,{comment})
+        .put(`https://lastchapter2021.herokuapp.com/updatecomments/${id}`,{comment})
         .then(result=>{
           this.setState({
             posts : result.data.reverse()

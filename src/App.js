@@ -48,7 +48,7 @@ class app extends React.Component {
   }
   componentDidMount = () => {
 
-    axios.get('http://localhost:3001/')
+    axios.get('https://lastchapter2021.herokuapp.com')
       .then((results) => {
         this.setState({
           catgories: results.data
@@ -97,7 +97,7 @@ class app extends React.Component {
       if(!(newArr.includes(postArr.title)))
       {
       axios
-        .post(`http://localhost:3001/add`, postArr)
+        .post(`https://lastchapter2021.herokuapp.com/add`, postArr)
         .then((response) => {
           console.log(response.data);
           this.setState({
@@ -117,7 +117,7 @@ class app extends React.Component {
   getFavData = () => {
     const { user } = this.props.auth0;
     const email = user.email
-    axios.get(`http://localhost:3001/profile?email=${email}`)
+    axios.get(`https://lastchapter2021.herokuapp.com/profile?email=${email}`)
       .then((results) => {
         this.setState({
           favourtie: results.data
@@ -144,7 +144,7 @@ class app extends React.Component {
     }).then((willDelete) => {
       if (willDelete) {
         axios
-        .delete(`http://localhost:3001/delete/${id}?email=${email}`)
+        .delete(`https://lastchapter2021.herokuapp.com/delete/${id}?email=${email}`)
         .then(result => {
           this.setState({
             favourtie: result.data
