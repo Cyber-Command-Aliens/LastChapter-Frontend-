@@ -26,7 +26,7 @@ class Comment extends React.Component {
               {this.state.edit ? (
                 <Form.Control defaultValue="comment 1" />
               ) : (
-                <ListGroup.Item>comment 1</ListGroup.Item>
+                <ListGroup.Item>{this.props.comment}</ListGroup.Item>
               )}
             </Col>
             <Col md={4}>

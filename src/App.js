@@ -6,11 +6,12 @@ import Footer from './Components/Footer/Footer';
 import { withAuth0 } from '@auth0/auth0-react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Review from './Components/Review /Review';
-import Login from './Components/Login/Login';
+import HomeLogin from './Components/Login/HomeLogin';
 import axios from 'axios';
 import Row from 'react-bootstrap/Row';
 import Profile from './Components/Profile/Profile';
 import swal from 'sweetalert';
+
 
 
 
@@ -167,7 +168,7 @@ class app extends React.Component {
     return (
       <>
           {!isAuthenticated &&
-            <Login></Login>
+            <HomeLogin />
 
           }
 
@@ -196,6 +197,7 @@ class app extends React.Component {
          
             <Row xs={1} md={3} >
             <Profile
+            
             favourtie={this.state.favourtie} 
             deleteBook={this.deleteBook} 
             getFavData= {this.getFavData}
@@ -207,7 +209,8 @@ class app extends React.Component {
           {isAuthenticated &&
 
            <Route exact path = "/Review">
-             <Review favBooks={this.state.favourtie}/>
+             {console.log(this.state.favourtie)}
+            { <Review favBooks={this.state.favourtie} getFavData= {this.getFavData}/>}
            </Route> 
           }
 
@@ -216,8 +219,8 @@ class app extends React.Component {
         </Router>
 
          
-            <Footer></Footer>
-          
+        
+        <Footer></Footer>
       </>
 
     );
