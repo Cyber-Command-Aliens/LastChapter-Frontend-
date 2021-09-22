@@ -34,7 +34,8 @@ class Header extends React.Component {
         // const { loginWithRedirect } = this.props.auth0;
         const { isAuthenticated,logout } = this.props.auth0;
         const { user } = this.props.auth0;
-        
+        let pic = user.picture 
+
         
         return (
             <>
@@ -63,24 +64,25 @@ class Header extends React.Component {
                       </Navbar.Brand>
                         
                         <Nav className="me-auto">
-                            <Nav.Link href="/">Home</Nav.Link>
+                            <Nav.Link  id="nav-text-size" href="/">Home</Nav.Link>
                           
-                            <Nav.Link href="/Profile">Profile</Nav.Link>
+                            <Nav.Link id="nav-text-size" href="/Profile">Profile</Nav.Link>
                             
-                            <Nav.Link href="/Review">Review</Nav.Link>
-                            <Nav.Link href="/AboutUs">About Us</Nav.Link>
+                            <Nav.Link id="nav-text-size"  href="/Review">Review</Nav.Link>
+                            <Nav.Link id="nav-text-size" href="/AboutUs">About Us</Nav.Link>
                             
                         
                         </Nav>
                         <Navbar.Collapse className="justify-content-end">
                                 <Navbar.Text>
-                                Hi <a className="welcome" style={{textDecoration:'none' , color:' rgb(92, 80, 78)'}}href="/Profile">{user.name}</a>
+                                Hi <a className="welcome" style={{textDecoration:'none' , color:' rgb(92, 80, 78)'}} href="/Profile">{user.name}</a>
+                             
                                 </Navbar.Text>
                                 {isAuthenticated &&
                                
                                 <Button  onClick={() => {
                                     logout({ returnTo: window.location.origin });
-                                  }}  style={{margin:'20px'}}variant="outline-info">
+                                  }}  style={{margin:'20px'}}variant="outline-warning">
                                     <i style={{marginLeft:"3px"}} class="bi bi-box-arrow-left"> Logout</i>
                                   </Button>
                                 }
@@ -94,3 +96,7 @@ class Header extends React.Component {
 }
 
 export default withAuth0(Header);
+
+
+
+//    {/* <img  id ="rounded" src= {pic}></img> */ //TODO: add pic to nav bar} 

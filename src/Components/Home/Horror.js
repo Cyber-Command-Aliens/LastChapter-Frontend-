@@ -82,7 +82,7 @@ class FilterHorror extends React.Component {
                       <Card  >
                         <Card.Img onClick={() => this.props.handleShow(item.title, item.img, item.author, item.status, item.pages, item.infoLink, item.catgory)} variant="top" src={item.img} alt="Card image" style={{ height: '30rem' }}></Card.Img>
                         <Card.Body>
-                          <Button onClick={() => this.props.favourite(item.title, item.img, item.author, item.status, item.pages, item.infoLink)} variant="warning">
+                          <Button className="cardButton" onClick={() => this.props.favourite(item.title, item.img, item.author, item.status, item.pages, item.infoLink)} variant="warning">
                             <i class="bi bi-bookmark-heart"> BookMark</i>
 
                           </Button>

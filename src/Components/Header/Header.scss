@@ -67,6 +67,7 @@ a{
     color: #fff;
   }
 
+
 }
 .banner{
   position: relative;
@@ -74,4 +75,14 @@ a{
   height: 100;
   background-color: url(https://www.pixelstalk.net/wp-content/uploads/images1/Wallpaper-book-1920x1080.jpg);
   background-size: cover ;
+}
+#nav-text-size{
+  font-size: 30px !important;
+  padding-left: 20px;
+  margin-left: 20px;
+ 
+}
+#rounded{
+  border-radius: 50%;
+  margin-left:200px;
 }
