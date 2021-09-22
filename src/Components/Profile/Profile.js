@@ -77,7 +77,7 @@ class Profile extends Component {
                         </Card.Body>
                         <Card.Footer  > 
 
-                        <Button variant="warning"  outline onClick={() => this.props.deleteBook(item._id)} className="cardButton"><i class="bi bi-trash"> Delete</i></Button>
+                        <Button variant="warning"  outline onClick={() => this.props.deleteBook(item._id)} className="cardButton2"><i class="bi bi-trash"> Delete</i></Button>
              
                                
 

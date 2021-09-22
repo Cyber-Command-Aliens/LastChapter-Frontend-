@@ -24,16 +24,16 @@
   text-transform: uppercase;
 }
 
-  .cardButton{
+  .cardButton2{
 
-    border-radius: 50px;
+
     font-size: 20px;
     /* margin: 0; */
     /* padding: 2px 10px; */
     text-transform: uppercase;
     cursor: pointer;
     color: #ffffff;
-    background-color: #6a3093;
+    background-color: #ffc107;;
     width:50%;
     margin-left: 25%;
     margin-right: 25%;
